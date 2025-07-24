@@ -91,11 +91,24 @@
 }
     body {
       margin: 0;
-      background: radial-gradient(circle, ##ff95e7, ##ff55dcd5, ##ffaadf);
       font-family: 'Comic Sans MS', cursive, sans-serif;
       overflow: hidden;
-    }
+  background: linear-gradient(300deg,#ff0084,#ffffff,#f670b5,#ec72eb);
+  background-size: 240% 240%;
+  animation: gradient-animation 16s ease infinite;
+}
 
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
     .center {
       position: absolute;
       top: 50%; left: 50%;
