@@ -158,13 +158,9 @@
   width: 100px;
   margin: 10px auto;
   display: block;
-  animation: pulse 2s infinite;
+  animation: pulse 2.5s infinite;
 
-  /* 👇 REMOVE these if you had them */
-  position: static; /* default */
-  z-index: auto;
-  top: auto;
-  left: auto;
+
 }
 
     .message {
@@ -268,7 +264,7 @@
       if (i < message.length) {
         document.getElementById("typedMessage").textContent += message.charAt(i);
         i++;
-        setTimeout(typeMessage, 60);
+        setTimeout(typeMessage, 80);
       }
     }
 
