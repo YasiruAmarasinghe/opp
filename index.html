@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You 💌</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle, ##ff95e7, ##ff55dcd5, ##ffaadf);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+    }
+
+    .center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .tap-text {
+      font-size: 24px;
+      color: #d6336c;
+      background: #fff0f5;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 15px rgba(255, 0, 128, 0.3);
+    }
+
+    .letter {
+      width: 300px;
+      height: 200px;
+      background: #fff;
+      border: 2px solid #ff9aa2;
+      position: relative;
+      margin: 20px auto;
+      transform: scale(0);
+      transition: transform 1s ease-in-out;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .letter.open {
+      transform: scale(1.2);
+    }
+
+    .letter-content {
+      padding: 20px;
+      animation: popUp 1s ease forwards;
+    }
+
+    .rose, .cat {
+      width: 100px;
+      margin: 10px auto;
+      display: block;
+      animation : pulse 2s infinite;
+    }
+
+    .message {
+      font-size: 18px;
+      color: #c2185b;
+      margin-top: 15px;
+      white-space: pre-wrap;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      animation: sparkle 2s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0% {opacity: 0; transform: scale(0);}
+      50% {opacity: 1; transform: scale(1);}
+      100% {opacity: 0; transform: scale(0);}
+    }
+
+    @keyframes popUp {
+      from {opacity: 0; transform: scale(0.8);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Responsive */
+    @media (max-width: 400px) {
+      .letter { width: 90%; height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <div class="tap-text" onclick="openLetter()">💌 Tap Here</div>
+
+    <div class="letter" id="letter">
+      <div class="letter-content">
+        <img src="Rose.png" class="rose" alt="Rose">
+        <img src="Cat.png" class="cat" alt="Cute Cat">
+
+        <div class="message" id="typedMessage"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Romantic Music (looped) -->
+  <audio autoplay loop>
+    <source src="ride_it.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Sparkles -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      let sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.top = Math.random() * 100 + "%";
+      sparkle.style.left = Math.random() * 100 + "%";
+      sparkle.style.animationDuration = (1 + Math.random() * 2) + "s";
+      sparkle.style.background = ["#ff55b3", "#ff4069", "#ffe4e1"][Math.floor(Math.random() * 3)];
+      document.body.appendChild(sparkle);
+    }
+
+    const message = "For you \nChara ✨";
+    let i = 0;
+    function typeMessage() {
+      if (i < message.length) {
+        document.getElementById("typedMessage").textContent += message.charAt(i);
+        i++;
+        setTimeout(typeMessage, 60);
+      }
+    }
+
+    function openLetter() {
+      document.getElementById("letter").classList.add("open");
+      setTimeout(typeMessage, 800);
+    }
+  </script>
+</body>
+</html>
