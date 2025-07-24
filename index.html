@@ -147,35 +147,24 @@
     }
 
     letter-content {
-  position: relative;
-  width: 100%;
-  height: 300px; /* or whatever height you want */
+  po.letter-content {
   padding: 20px;
+  position: relative;
   animation: popUp 1s ease forwards;
-
-  /* 👇 This centers absolute children */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center; /* centers inline elements like images */
 }
 
 .cat, .rose {
-  position: absolute;
-  
-  animation: pulse 2s infinite;
-}
-
-/* 👇 Make sure rose is on top of cat */
-.cat {
-  z-index: 1;
   width: 100px;
-}
+  margin: 10px auto;
+  display: block;
+  animation: pulse 2s infinite;
 
-.rose {
-  z-index: 2;
-  width: 80px;
-  top:-20px;
-  opacity:0.8;
+  /* 👇 REMOVE these if you had them */
+  position: static; /* default */
+  z-index: auto;
+  top: auto;
+  left: auto;
 }
 
     .message {
