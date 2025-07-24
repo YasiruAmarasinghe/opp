@@ -147,23 +147,30 @@
     }
 
     .letter-content {
-      padding: 20px;
-      position: relative;
-      animation: popUp 1s ease forwards;
-    }
+  padding: 20px;
+  position: relative;
+  animation: popUp 1s ease forwards;
+  width: 200px;
+  height: 200px;
+}
 
-    .rose {
-      width: 100px;
-      margin: 10px auto;
-    position: absolute;
-      animation : pulse 2s infinite;
-    }
 .cat {
-      width: 100px;
-      margin: 10px auto;
-      display: block;
-      animation : pulse 2s infinite;
-    }
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  animation: pulse 2s infinite;
+}
+
+.rose {
+  width: 100px;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  z-index: 2;
+  animation: pulse 2s infinite;
+}
 
     .message {
       font-size: 18px;
